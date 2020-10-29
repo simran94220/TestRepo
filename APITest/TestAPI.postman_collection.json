@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "a256a221-2b8c-4b51-8f00-8302a0139f70",
+		"name": "TestAPI",
+		"description": "test api https://github.com/r-spacex/SpaceX-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "test1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "17dfb7d8-9e10-4bfa-9d13-16efc7c0b9c8",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response flight_number not null\", function () {\r",
+							"    var jsondata = pm.response.json();\r",
+							"    pm.expect(jsondata.flight_number).not.eql(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response name not null\" , function () {\r",
+							"   var jsondata = pm.response.json();\r",
+							"    pm.expect(jsondata.name).not.eql(null);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.spacexdata.com/v4/launches/latest",
+					"protocol": "https",
+					"host": [
+						"api",
+						"spacexdata",
+						"com"
+					],
+					"path": [
+						"v4",
+						"launches",
+						"latest"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
